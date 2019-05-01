@@ -1,9 +1,21 @@
+<div class="csv-loader">
+  <h1>Datalog Import</h1>
+  <p>Please import your <code>.csv</code> file here. You can also paste your comma-delimited content in the field below</p>
+
+  <div class="form-item">
+    <button type="button" (click)="importSampleData()">(DEV) Import Sample Data</button>
+  </div>
+
+  <div class="form-item">
+    <label>Upload file</label>
+    <input type="file" name="csvString" id="txtFileUpload" (change)="uploadedFile($event)" accept=".csv" />
+  </div>
+
+  <div class="form-item">
+    <label>Plain Text Import</label>
+    <textarea name="csvString" id="csvStringImport" (change)="updatedText($event)"></textarea>
+  </div>
 
 
-<div class="csv-loader" >
-  <input type="file" name="csvString" id="txtFileUpload" (change)="changeListener($event)" accept=".csv" />
 </div>
 
-<div class="csv-loader-data">
-  {{ csvInput }}test
-</div>
