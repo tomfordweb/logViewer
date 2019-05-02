@@ -50,14 +50,24 @@ table {
   border-spacing: 0;
 }
 
+// font-family: 'Raleway', sans-serif;
+// font-family: 'Roboto Slab', serif;
 // start css
 body {
   font-family: 'Raleway', sans-serif;
+  font-size: 20px;
 }
 // typography
- #{headings(1,6)} {
+#{headings(1,6)} {
   font-family: 'Roboto Slab', serif;
+  margin-bottom: 10px;
 }
+
+
+h1 {
+  font-size: 2.2em;
+}
+
 
 // inputs & forms
 .form-item {
@@ -67,8 +77,6 @@ body {
 
 
 
-// font-family: 'Raleway', sans-serif;
-// font-family: 'Roboto Slab', serif;
 
 
 input {

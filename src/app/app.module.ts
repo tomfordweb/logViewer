@@ -11,13 +11,15 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTable, faChartLine } from '@fortawesome/free-solid-svg-icons';
+import { HeatmapCellComponent } from './heatmap-cell/heatmap-cell.component';
 @NgModule({
   declarations: [
     AppComponent,
     CsvLoaderComponent,
     TableViewComponent,
     LineViewComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HeatmapCellComponent
   ],
   imports: [
     BrowserModule,
