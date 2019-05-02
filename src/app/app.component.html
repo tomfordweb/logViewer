@@ -9,9 +9,14 @@
 
 <!-- Cool, we have a csv, show the app -->
 <ng-template #appScreen>
-
-     {{ store.csv }}
-
+  <nav class="app-navigation">
+    <ul>
+      <li><a routerLink="/table" routerLinkActive="active"><fa-icon icon="table"></fa-icon> Table View</a></li>
+      <li><a routerLink="/line" routerLinkActive="active"><fa-icon icon="chart-line"></fa-icon> Line View</a></li>
+    </ul>
+  </nav>
+  <main>
     <router-outlet></router-outlet>
+  </main>
 </ng-template>
 

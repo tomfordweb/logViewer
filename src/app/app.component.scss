@@ -1,0 +1,29 @@
+#app {
+  display: flex;
+  flex-wrap: wrap;
+
+  > nav,
+  > main {
+    display: inline-block;
+    width: 100%;
+  }
+
+  > csv-loader {
+    width: 100%;
+  }
+
+  @media(min-width: 800px) {
+    > nav {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      white-space: nowrap;
+    }
+    > main {
+      margin-left: 70px;
+      width: calc(100% - 70px);
+    }
+  }
+}
