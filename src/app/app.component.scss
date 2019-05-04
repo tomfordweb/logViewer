@@ -20,20 +20,32 @@
       left: 0;
       width: 100px;
       white-space: nowrap;
-
+      padding-top: 20px;
       li {
-        svg {
-          margin: auto;
-          display: block;
-        }
-        > a {
+        text-align: center;
+        margin-bottom: 20px;
+        a {
+          text-decoration: none;
+          color: #7b7b7b;
+          fa-icon {
+            margin: auto;
+            font-size: 1.4em;
+            display: block;
+            margin-bottom: 10px;
+          }
 
+          &:hover {
+            color: #000;
+          }
         }
+
+
       }
     }
     > main {
       margin-left: 120px;
-      width: auto;
+      width: calc( 100% - 120px);
+
     }
   }
 }

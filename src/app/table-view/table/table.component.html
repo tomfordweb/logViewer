@@ -1,0 +1,32 @@
+<header class="intro">
+  <h1>Datalog Table</h1>
+  <p>Click a header to sort by that column.</p>
+</header>
+
+<table class="datalog-table">
+  <thead>
+    <tr>
+      <th *ngFor="let header of log.headers; index as i" (click)="sortBy(i)">
+        {{ header }}
+        <span class="sortOrder {{ sortOrder }}" *ngIf="sortKey === i"></span>
+      </th>
+    </tr>
+    <tr>
+      <td *ngFor="let row of log.minMax" class="minMax">
+        <p><strong>Min:</strong> {{ row.min }}</p>
+        <p><strong>Max:</strong> {{ row.max }}</p>
+      </td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let row of rows">
+        <td *ngFor="let value of row; index as minMaxIndex">
+          <heatmap-cell [minMax]="log.minMax[minMaxIndex]" [value]="value"></heatmap-cell>
+          <span class="value">{{ value }}</span>
+        </td>
+    </tr>
+  </tbody>
+  <tfoot>
+  </tfoot>
+</table>

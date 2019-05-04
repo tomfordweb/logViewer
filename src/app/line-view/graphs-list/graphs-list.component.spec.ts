@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MinMaxRowsComponent } from './min-max-rows.component';
+import { GraphsListComponent } from './graphs-list.component';
 
-describe('MinMaxRowsComponent', () => {
-  let component: MinMaxRowsComponent;
-  let fixture: ComponentFixture<MinMaxRowsComponent>;
+describe('GraphsListComponent', () => {
+  let component: GraphsListComponent;
+  let fixture: ComponentFixture<GraphsListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MinMaxRowsComponent ]
+      declarations: [ GraphsListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MinMaxRowsComponent);
+    fixture = TestBed.createComponent(GraphsListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

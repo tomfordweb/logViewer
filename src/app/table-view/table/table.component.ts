@@ -1,12 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BackendService } from '../backend.service';
-import Log from '../log.model';
+import { BackendService } from '@app/backend.service';
+import Log from '@app/log.model';
+
 @Component({
   selector: 'app-table-view',
-  templateUrl: './table-view.component.html',
-  styleUrls: ['./table-view.component.scss']
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.scss']
 })
-export class TableViewComponent implements OnInit {
+export class TableComponent implements OnInit {
   rows:Array<{any}>;
   log:Log;
   sortKey:number = 0;
@@ -18,6 +19,7 @@ export class TableViewComponent implements OnInit {
     this.log = store.log;
     this.rows = store.log.data;
 
+    console.log(this);
   }
 
   sortBy(key) {

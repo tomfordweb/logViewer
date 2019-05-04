@@ -1,0 +1,75 @@
+@mixin triangle($direction, $size, $color) {
+  width: 0;
+  height: 0;
+  border: $size solid transparent;
+  border-#{$direction}: $size solid $color;
+}
+
+.intro {
+  margin-bottom: 40px;
+}
+
+.datalog-table {
+  font-size: 16px;
+  width: 100%;
+  font-size: 0.6em;
+  // all td elements (some are in thead)
+  td {
+    padding: 3px;
+  }
+  thead {
+    td.minMax {
+      background: #eee;
+      text-align: left;
+    }
+
+    th {
+      font-weight: bold;
+      position: relative;
+      cursor: pointer;
+      padding: 20px 20px 20px 5px;
+      background: #bbb;
+      border: 1px solid #aaa;
+      font-size: 0.8em;
+      // triangle that displays in main header to indicate sorting order
+      .sortOrder {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 5px;
+        &.asc {
+          @include triangle(top, 5px, #000);
+        }
+
+        &.desc {
+          @include triangle(bottom, 5px, #000);
+        }
+      }
+    }
+
+  }
+
+
+  tbody {
+    tr {
+      &:hover td {
+        background: #FFF8AA;
+      }
+    }
+
+    td {
+      position: relative;
+
+      .value {
+        z-index: 100;
+        position: relative;
+      }
+    }
+  }
+  th,td {
+    text-align: center;
+  }
+
+
+}

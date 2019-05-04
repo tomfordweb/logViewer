@@ -15,29 +15,37 @@ export default class Log  {
     return this.headers.map( (key, index) => this.getMinMax(index));
   }
 
-  getMinMax(key) {
+  getMinMax(key){
     return {
-      key,
+      key: this.getHeaderForKey(key),
       min: this.getMin(key),
       max: this.getMax(key),
     }
   }
 
+
   sortByDesc(key) {
-    console.log('sort by desc', key);
     return this.data.sort((a, b) => (b[key] > a[key]) ? 1 : -1)
   }
 
   sortByAsc(key) {
-    console.log('sort by asc', key);
     return this.data.sort((a, b) => (a[key] > b[key]) ? 1 : -1)
   }
 
+  getColumn(key) {
+    return this.data.map( item => item[key])
+  }
   getMin(key) {
-    return this.data.reduce((min, p) => p[key] < min ? p[key] : min, this.data[key]);
+    return this.getColumn(key)
+      .reduce((min, p) => p < min ? p : min)
+  }
+
+  getHeaderForKey(key) {
+    return this.headers[key]
   }
 
   getMax(key) {
-    return this.data.reduce((max, p) => p[key] > max ? p[key] : max, this.data[key]);
+    return this.getColumn(key)
+      .reduce((min, p) => p > min ? p : min)
   }
 }
