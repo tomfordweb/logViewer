@@ -1,19 +1,20 @@
 <table class="datalog-table">
   <thead>
     <tr>
-      <th *ngFor="let header of log.headers; index as i" (click)="sortBy(i)">{{ header}}</th>
+      <th *ngFor="let header of log.headers; index as i" (click)="sortBy(i)">
+        {{ header }}
+        <span class="sortOrder {{ sortOrder }}" *ngIf="sortKey === i"></span>
+      </th>
     </tr>
+    <min-max-rows></min-max-rows>
+
   </thead>
 
   <tbody>
     <tr *ngFor="let row of rows">
-        <td *ngFor="let value of row">
-           {{ value }}
-        </td>
+        <td *ngFor="let value of row">{{ value }}</td>
     </tr>
   </tbody>
-
   <tfoot>
-
   </tfoot>
 </table>

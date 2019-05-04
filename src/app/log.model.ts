@@ -1,30 +1,18 @@
 
-
-export interface Deserializable {
-  deserialize(input: any): this;
-
-}
-
-export default class Log implements Deserializable {
-  data: Array<any>
-  headers: Array<string>;
-  errors?: Array<any>;
-  minMax?: object;
+export default class Log  {
+  data: Array<any> = [];
+  headers: Array<string> = [];
+  errors: Array<any> = [];
+  minMax: Array<object>;
 
   constructor(input) {
-    console.log(input);
-    this.data  = input.data.slice(1);
     this.headers = input.data[0];
+    this.data  = input.data.slice(1);
     this.minMax = this.getMinMaxAll();
   }
 
-  deserialize(input: any) {
-    Object.assign(this, input);
-    return this;
-  }
-
   getMinMaxAll() {
-    return this.headers.map( (key) => this.getMinMax(key));
+    return this.headers.map( (key, index) => this.getMinMax(index));
   }
 
   getMinMax(key) {
@@ -36,20 +24,20 @@ export default class Log implements Deserializable {
   }
 
   sortByDesc(key) {
-    console.log('sort by', key);
+    console.log('sort by desc', key);
     return this.data.sort((a, b) => (b[key] > a[key]) ? 1 : -1)
   }
 
   sortByAsc(key) {
-    console.log('sort by', key);
+    console.log('sort by asc', key);
     return this.data.sort((a, b) => (a[key] > b[key]) ? 1 : -1)
   }
 
   getMin(key) {
-    return this.data.reduce((min, p) => p[key] < min ? p[key] : min, this.data[0][key]);
+    return this.data.reduce((min, p) => p[key] < min ? p[key] : min, this.data[key]);
   }
 
   getMax(key) {
-    return this.data.reduce((max, p) => p[key] > max ? p[key] : max, this.data[0][key]);
+    return this.data.reduce((max, p) => p[key] > max ? p[key] : max, this.data[key]);
   }
 }

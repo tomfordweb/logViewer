@@ -12,6 +12,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTable, faChartLine } from '@fortawesome/free-solid-svg-icons';
 import { HeatmapCellComponent } from './heatmap-cell/heatmap-cell.component';
+import { MinMaxRowsComponent } from './table-view/min-max-rows/min-max-rows.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { HeatmapCellComponent } from './heatmap-cell/heatmap-cell.component';
     TableViewComponent,
     LineViewComponent,
     PageNotFoundComponent,
-    HeatmapCellComponent
+    HeatmapCellComponent,
+    MinMaxRowsComponent,
   ],
   imports: [
     BrowserModule,

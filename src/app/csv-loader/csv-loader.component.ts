@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Import } from '../import.model';
 import sample from './sample.js';
 
 @Component({
@@ -9,7 +8,6 @@ import sample from './sample.js';
 })
 
 export class CsvLoaderComponent implements OnInit {
-  @Input() import: Import;
   @Output() upload: EventEmitter<any> = new EventEmitter();
 
   constructor() {}

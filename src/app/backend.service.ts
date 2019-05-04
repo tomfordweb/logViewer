@@ -1,19 +1,16 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject} from 'rxjs'
 import {shareReplay, map} from 'rxjs/operators'
-import { Import } from './import.model';
 import Log from './log.model';
 import { Papa } from 'ngx-papaparse';
 
+
+
 @Injectable({providedIn: 'root'})
-
 export class BackendService {
-
-  private readonly _inputCsv = new BehaviorSubject<Import[]>([]);
-  private readonly _log = new BehaviorSubject<Log>();
+  private readonly _log = new BehaviorSubject<Log>(null);
 
   constructor(private papa: Papa) {}
-
 
   /**
    * Receive CSV input and parse it via a Papa wrapper for angular
@@ -21,31 +18,18 @@ export class BackendService {
    */
   setLog(input:string) {
     // see https://alberthaff.dk/projects/ngx-papaparse/docs/v3/parsing-csv
+    // @todo optimizations
     this.papa.parse(input, {
-      // header: true, //turns output into array of objects with keys, necessary for filtering
-      dynamicTyping: true, //converts to their types
+      dynamicTyping: true, //converts values to their types
       fastMode: true, // will break if there are quotes, will probably cause bugs with some logs
-      complete: (result) => {
-          this.log = new Log(result);
+      complete: (result):void => {
+          this.log = new Log({...result});
         }
     });
   }
 
-  setImport(data) {
-    this.csv = data;
-    this.setLog(data);
-  }
-
-  get csv(): Import[] {
-    return this._inputCsv.getValue();
-  }
-
-  set csv(val: Import[]) {
-    this._inputCsv.next(val);
-  }
-
-  get log(): Log {
-    return this._log.getValue('data');
+  get log():Log {
+    return this._log.getValue();
   }
 
   set log(data) {

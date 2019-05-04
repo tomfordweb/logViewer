@@ -7,10 +7,10 @@ All PR's are welcome.
 
 # Roadmap
 
-* Upload CSV files
+* <del>Upload CSV files</del>
+* Grid/Table layout with heat ranges, filters, etc.
 * View individual line graph of all uploaded parameters
 * View overlay line graph with multiple parameters at once
-* Grid/Table layout with heat ranges, filters, etc.
 * MAF Scaling tool
 * Virtual dyno
 * Calculators

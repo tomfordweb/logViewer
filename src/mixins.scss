@@ -5,3 +5,10 @@
         @return 'h#{$from},' + headings($from+1, $to);
     }
 }
+
+@mixin triangle($direction, $size, $color) {
+  width: 0;
+  height: 0;
+  border: $size solid transparent;
+  border-#{$direction}: $size solid $color;
+}

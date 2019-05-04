@@ -10,8 +10,7 @@ import { BackendService } from './backend.service';
 export class AppComponent {
   title:string = 'logViewer';
   constructor(public store: BackendService) {}
-
   onUploadCsv(result) {
-    this.store.setImport(result);
+    this.store.setLog(result);
   }
 }
