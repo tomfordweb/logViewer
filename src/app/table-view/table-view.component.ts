@@ -8,18 +8,19 @@ import { BackendService } from '../backend.service';
 })
 export class TableViewComponent implements OnInit {
   rows:Array<{any}>;
-  log:Array<string>;
+  log:Array<object>;
 
   @Input() data:any;
 
   constructor(public store: BackendService) {
     this.log = store.log;
-    this.rows = this.log.data;
+    console.log(store.log);
+    this.rows = store.log.data;
+
   }
 
   sortBy(key) {
-    console.log(this.log.sortBy(key));
-    this.rows = this.log.sortBy(key);
+    this.rows = this.store.log.sortByAsc(key);
   }
 
   ngOnInit() {

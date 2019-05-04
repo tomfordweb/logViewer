@@ -22,13 +22,12 @@ export class BackendService {
   setLog(input:string) {
     // see https://alberthaff.dk/projects/ngx-papaparse/docs/v3/parsing-csv
     this.papa.parse(input, {
-      header: true, //turns output into array of objects with keys, necessary for filtering
+      // header: true, //turns output into array of objects with keys, necessary for filtering
       dynamicTyping: true, //converts to their types
       fastMode: true, // will break if there are quotes, will probably cause bugs with some logs
       complete: (result) => {
           this.log = new Log(result);
         }
-
     });
   }
 

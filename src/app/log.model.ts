@@ -13,8 +13,8 @@ export default class Log implements Deserializable {
 
   constructor(input) {
     console.log(input);
-    this.deserialize(input);
-    this.headers = Object.keys(input.data[0]);
+    this.data  = input.data.slice(1);
+    this.headers = input.data[0];
     this.minMax = this.getMinMaxAll();
   }
 
@@ -35,9 +35,16 @@ export default class Log implements Deserializable {
     }
   }
 
-  sortBy(key) {
+  sortByDesc(key) {
+    console.log('sort by', key);
+    return this.data.sort((a, b) => (b[key] > a[key]) ? 1 : -1)
+  }
+
+  sortByAsc(key) {
+    console.log('sort by', key);
     return this.data.sort((a, b) => (a[key] > b[key]) ? 1 : -1)
   }
+
   getMin(key) {
     return this.data.reduce((min, p) => p[key] < min ? p[key] : min, this.data[0][key]);
   }

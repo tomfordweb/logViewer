@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Import } from '../import.model';
-
 import sample from './sample.js';
 
 @Component({

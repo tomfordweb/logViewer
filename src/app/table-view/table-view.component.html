@@ -1,14 +1,14 @@
 <table class="datalog-table">
   <thead>
     <tr>
-      <th *ngFor="let header of rows[0] | keyvalue" (click)="sortBy(header.key)">{{ header.key }}</th>
+      <th *ngFor="let header of log.headers; index as i" (click)="sortBy(i)">{{ header}}</th>
     </tr>
   </thead>
 
   <tbody>
     <tr *ngFor="let row of rows">
-        <td *ngFor="let item of row | keyvalue">
-            <heatmap-cell [key]="item.key" [value]="item.value">{{ item.value }}</heatmap-cell>
+        <td *ngFor="let value of row">
+           {{ value }}
         </td>
     </tr>
   </tbody>
