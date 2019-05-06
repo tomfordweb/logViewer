@@ -69,6 +69,9 @@ h1 {
   font-size: 2.2em;
 }
 
+p {
+  margin-bottom: 20px;
+}
 
 // inputs & forms
 .form-item {
@@ -80,6 +83,11 @@ h1 {
 input {
   display: block;
   width: 100%;
+
+  &[type="checkbox"] {
+    width: auto;
+    display: inline;
+  }
 }
 
 textarea {

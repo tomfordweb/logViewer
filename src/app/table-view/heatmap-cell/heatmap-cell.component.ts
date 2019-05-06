@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeatmapCellComponent implements OnInit {
 
-  @Input() minMax:object;
+  @Input() minMax:any;
   @Input() value:any;
   color:string;
 

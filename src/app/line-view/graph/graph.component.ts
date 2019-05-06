@@ -14,25 +14,27 @@ export class GraphComponent implements OnInit {
   @Input() xAxis:[any]
   public lineChartData: ChartDataSets[];
   public lineChartLabels: Label[];
-  public lineChartOptions: (ChartOptions & { annotation: any }) = {
-    responsive: true,
-  };
+  public lineChartOptions: (ChartOptions & { annotation: any });
   public lineChartColors: Color[] = [
     {
       borderColor: 'black',
-      backgroundColor: 'rgba(255,0,0,0.3)',
+      backgroundColor: 'rgba(255,255,0,0.3)',
     },
   ];
   public lineChartLegend = true;
   public lineChartType = 'line';
   public lineChartPlugins = [];
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
     this.lineChartData = [
-      { data: this.data, label: this.header },
+      {
+        data: this.data,
+        label: this.header,
+        pointRadius: 0,
+      },
     ];
+
 
     this.lineChartLabels  = this.xAxis;
   }

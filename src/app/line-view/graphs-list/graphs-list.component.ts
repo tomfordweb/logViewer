@@ -10,7 +10,17 @@ export class GraphsListComponent implements OnInit {
 
   constructor(public store: BackendService) { }
 
-  ngOnInit() {
-  }
+  toggleHeader(event, index) {
 
+    if(event.target.checked) {
+      this.store.log.showColumn(index);
+    } else {
+      this.store.log.hideColumn(index);
+
+    }
+
+
+    console.log('toggling a header', event);
+  }
+  ngOnInit() {}
 }

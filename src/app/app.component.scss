@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
 
-  > nav,
+  > .app-navigation,
   > main {
     display: inline-block;
     width: 100%;
@@ -12,15 +12,35 @@
     width: 100%;
   }
 
+  > .app-settings {
+    > button {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    position: fixed;
+    right: 0;
+    top: 10%;
+    z-index: 10000000;
+    max-width: 800px;
+    &.visible {
+      background: #fff;
+      padding: 20px;
+      overflow-y: scroll;
+    }
+
+  }
   @media(min-width: 800px) {
-    > nav {
+    > .app-navigation {
       position: fixed;
       top: 0;
       bottom: 0;
       left: 0;
-      width: 100px;
+      width: 120px;
       white-space: nowrap;
       padding-top: 20px;
+      background: #ddd;
+      border-right: 4px solid #aaa;
       li {
         text-align: center;
         margin-bottom: 20px;

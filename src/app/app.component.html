@@ -4,7 +4,7 @@
 
 <!-- This will only be displayed if there is no csv string in the store -->
 <ng-template #uploadScreen>
-    <csv-loader (upload)="onUploadCsv($event)"></csv-loader>
+    <csv-loader (upload)="store.setLog($event)"></csv-loader>
 </ng-template>
 
 <!-- We have a csv, show the app -->
@@ -18,5 +18,23 @@
   <main>
     <router-outlet></router-outlet>
   </main>
+  <nav [ngClass]="{'app-settings':true, 'visible':showAppSettings}">
+
+    <button (click)="toggleSettingsVisible()"><fa-icon icon="cogs"></fa-icon></button>
+    <div *ngIf="showAppSettings" class="settingsScreen ">
+      <h2>Visible Data</h2>
+      <p>Toggling a checkbox hides it from the log viewer.</p>
+      <ul>
+        <li *ngFor="let header of store.log.allHeaders">
+          <label>
+            <input
+              type="checkbox"
+              checked="this.store.headers.includes(header)"
+              (change)="($event.target.checked) ? store.log.showColumn(header) : store.log.hideColumn(header)"/>
+            {{ header }}</label>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </ng-template>
 
