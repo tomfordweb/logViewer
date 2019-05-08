@@ -19,7 +19,6 @@
     <router-outlet></router-outlet>
   </main>
   <nav [ngClass]="{'app-settings':true, 'visible':showAppSettings}">
-
     <button (click)="toggleSettingsVisible()"><fa-icon icon="cogs"></fa-icon></button>
     <div *ngIf="showAppSettings" class="settingsScreen ">
       <h2>Visible Data</h2>
@@ -31,6 +30,17 @@
               type="checkbox"
               checked="this.store.headers.includes(header)"
               (change)="($event.target.checked) ? store.log.showColumn(header) : store.log.hideColumn(header)"/>
+            {{ header }}</label>
+        </li>
+      </ul>
+
+      <h2>Heatmap Cells</h2>
+      <ul>
+        <li *ngFor="let header of store.log.allHeaders; index as i">
+          <label>
+            <input
+              type="checkbox"
+              (change)="($event.target.checked) ? store.heatmap.addColumn(i) : store.heatmap.removeColumn(i)"/>
             {{ header }}</label>
         </li>
       </ul>

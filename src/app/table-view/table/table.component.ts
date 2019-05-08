@@ -18,8 +18,7 @@ export class TableComponent implements OnInit {
   constructor(public store: BackendService) {
     this.log = store.log;
     this.rows = store.log.data;
-
-    console.log(this);
+    console.log(store);
   }
 
   sortBy(key) {

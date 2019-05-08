@@ -22,8 +22,9 @@
   <tbody>
     <tr *ngFor="let row of log.data">
         <td *ngFor="let value of row; index as minMaxIndex">
-          <heatmap-cell [minMax]="log.minMax[minMaxIndex]" [value]="value"></heatmap-cell>
           <span class="value">{{ value }}</span>
+
+          <heatmap-cell *ngIf="store.heatmap.columns.includes(minMaxIndex)" [minMax]="log.minMax[minMaxIndex]" [value]="value"></heatmap-cell>
         </td>
     </tr>
   </tbody>

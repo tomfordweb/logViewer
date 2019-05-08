@@ -11,10 +11,14 @@ import Log from '@app/log.model';
 export class GraphComponent implements OnInit {
   @Input() data:[any];
   @Input() header:string;
-  @Input() xAxis:[any]
-  public lineChartData: ChartDataSets[];
+  @Input() xAxis:[any];
+
+  public elementWidth: 300;
+  public lineChartOptions: (ChartOptions & { annotation: any }) = {
+    responsive: true,
+  };
+  public lineChartData: ChartDataSets[] = [];
   public lineChartLabels: Label[];
-  public lineChartOptions: (ChartOptions & { annotation: any });
   public lineChartColors: Color[] = [
     {
       borderColor: 'black',
@@ -27,6 +31,7 @@ export class GraphComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    console.log('rendering line graph');
     this.lineChartData = [
       {
         data: this.data,

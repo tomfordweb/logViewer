@@ -10,6 +10,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTable, faChartLine, faCogs } from '@fortawesome/free-solid-svg-icons';
 
+import { BackendService } from './backend.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,9 @@ import { faTable, faChartLine, faCogs } from '@fortawesome/free-solid-svg-icons'
     PapaParseModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [
+    BackendService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

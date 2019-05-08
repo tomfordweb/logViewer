@@ -4,6 +4,7 @@ import { ChartsModule } from 'ng2-charts';
 import { LineViewRoutingModule } from './line-view-routing.module';
 import { GraphsListComponent } from './graphs-list/graphs-list.component';
 import { GraphComponent } from './graph/graph.component';
+import { DeferLoadModule } from '@trademe/ng-defer-load';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { GraphComponent } from './graph/graph.component';
   imports: [
     CommonModule,
     LineViewRoutingModule,
-    ChartsModule
+    ChartsModule,
   ]
 })
 export class LineViewModule { }

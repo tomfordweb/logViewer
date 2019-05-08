@@ -1,10 +1,11 @@
 
 <section>
-<article *ngFor="let header of store.log.headers; index as index">
-  <line-view-graph
-      [header]="header"
-      [data]="store.log.getColumn(index)"
-      [xAxis]="store.log.getColumn(0)">
-  </line-view-graph>
+<article
+    *ngFor="let header of store.log.headers; index as index">
+      <line-view-graph
+          [header]="header"
+          [data]="store.log.getColumn(index)"
+          [xAxis]="store.log.getColumn(0)">
+      </line-view-graph>
 </article>
 </section>
