@@ -14,9 +14,7 @@ export class GraphComponent implements OnInit {
   @Input() xAxis:[any];
 
   public elementWidth: 300;
-  public lineChartOptions: (ChartOptions & { annotation: any }) = {
-    responsive: true,
-  };
+  public lineChartOptions: (ChartOptions & { annotation: any }) = {annotation: null};
   public lineChartData: ChartDataSets[] = [];
   public lineChartLabels: Label[];
   public lineChartColors: Color[] = [
